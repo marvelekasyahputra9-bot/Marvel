@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Modern Dark</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Orbs Background -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo" onclick="scrollToSection('beranda')">&lt; Portfolio /&gt;</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </nav>
+
+    <!-- ============ POPUP MENU OVERLAY ============ -->
+    <div class="menu-overlay" id="menuOverlay">
+        <nav class="menu-nav">
+            <a href="#beranda" onclick="closeMenu()">
+                <span class="menu-icon">🏠</span> Beranda
+            </a>
+            <a href="#project-sekolah" onclick="closeMenu()">
+                <span class="menu-icon">📚</span> Project Sekolah
+            </a>
+            <a href="#kontak" onclick="closeMenu()">
+                <span class="menu-icon">📬</span> Kontak
+            </a>
+            <a href="#panel" onclick="closeMenu()">
+                <span class="menu-icon">📊</span> Panel
+            </a>
+        </nav>
+        <div class="menu-close-hint">Tekan ESC atau klik di luar untuk menutup</div>
+    </div>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="main-content">
+
+        <!-- SECTION: BERANDA -->
+        <section class="section" id="beranda">
+            <div class="section-inner">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <span class="section-tag">👋 Halo, perkenalkan</span>
+                        <h1>Saya <span class="hl">marvel eka syaputra</span> &<br><span class="hl">Developer</span> Muda</h1>
+                        <p>
+                            Pelajar yang bersemangat dalam dunia teknologi, desain web modern,
+                            dan pengembangan aplikasi. Membangun karya digital dengan sentuhan
+                            kreativitas dan kode yang bersih.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#project-sekolah" class="btn btn-primary">✨ Lihat Karya</a>
+                            <a href="#kontak" class="btn btn-outline">💬 Hubungi Saya</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-avatar-frame">
+                            <span class="avatar-icon">🧑‍💻</span>
+                            <div class="hero-avatar-ring"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PROJECT SEKOLAH -->
+        <section class="section" id="project-sekolah">
+            <div class="section-inner">
+                <span class="section-tag">📂 Portfolio</span>
+                <h2 class="section-title">Project <span class="highlight">Sekolah</span></h2>
+                <p class="section-desc">
+                    Kumpulan proyek dan tugas sekolah yang telah saya kerjakan dengan penuh dedikasi.
+                </p>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="card-icon">🌐</div>
+                        <h3>Website Perpustakaan</h3>
+                        <p>Sistem manajemen perpustakaan digital berbasis web untuk sekolah, lengkap dengan fitur peminjaman dan pengembalian buku.</p>
+                        <span class="card-badge">Web App</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-icon">📱</div>
+                        <h3>Aplikasi Jadwal Pelajaran</h3>
+                        <p>Aplikasi mobile sederhana untuk mengatur jadwal pelajaran harian dengan notifikasi pengingat tugas.</p>
+                        <span class="card-badge">Mobile</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-icon">🎨</div>
+                        <h3>Poster Digital Kreatif</h3>
+                        <p>Desain poster digital untuk event sekolah menggunakan tools desain modern dengan tema yang menarik.</p>
+                        <span class="card-badge">Desain</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-icon">🤖</div>
+                        <h3>Robot Line Follower</h3>
+                        <p>Proyek robotika sederhana menggunakan Arduino yang dapat mengikuti garis secara otomatis.</p>
+                        <span class="card-badge">Robotika</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Dashboard Nilai Siswa</h3>
+                        <p>Panel admin untuk menampilkan data nilai siswa dengan grafik interaktif yang mudah dipahami.</p>
+                        <span class="card-badge">Data</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="card-icon">🎮</div>
+                        <h3>Game Edukasi Sederhana</h3>
+                        <p>Game pembelajaran interaktif untuk membantu teman-teman memahami materi pelajaran dengan cara menyenangkan.</p>
+                        <span class="card-badge">Game</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: KONTAK -->
+        <section class="section" id="kontak">
+            <div class="section-inner">
+                <span class="section-tag">📬 Get in Touch</span>
+                <h2 class="section-title">Hubungi <span class="highlight">Saya</span></h2>
+                <p class="section-desc">
+                    Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk mengirim pesan!
+                </p>
+                <div class="contact-grid">
+                    <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
+                        <input type="text" placeholder="Nama Lengkap" required>
+                        <input type="email" placeholder="Alamat Email" required>
+                        <input type="text" placeholder="Subjek Pesan">
+                        <textarea rows="5" placeholder="Tulis pesanmu di sini..." required></textarea>
+                        <button type="submit" class="btn btn-primary">🚀 Kirim Pesan</button>
+                    </form>
+                    <div class="contact-info-card">
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div>
+                                <strong>Lokasi</strong>
+                                <p style="color:var(--text-muted);font-size:0.85rem;">Jawa timur, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📧</div>
+                            <div>
+                                <strong>Email</strong>
+                                <p style="color:var(--text-muted);font-size:0.85rem;">marvelekasyaputra9@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div>
+                                <strong>Telepon</strong>
+                                <p style="color:var(--text-muted);font-size:0.85rem;">+62 831-39893772</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🌍</div>
+                            <div>
+                                <strong>Media Sosial</strong>
+                                <p style="color:var(--text-muted);font-size:0.85rem;">@portofolio_saya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PANEL -->
+        <section class="section" id="panel">
+            <div class="section-inner">
+                <span class="section-tag">📊 Dashboard</span>
+                <h2 class="section-title">Panel <span class="highlight">Statistik</span></h2>
+                <p class="section-desc">
+                    Sekilas data dan kemampuan yang saya miliki dalam bentuk panel interaktif.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Project Selesai</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="8">0</div>
+                        <div class="stat-label">Sertifikat</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Penghargaan</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="1200">0</div>
+                        <div class="stat-label">Jam Belajar</div>
+                    </div>
+                </div>
+                <div class="skill-bar-wrap">
+                    <h3 style="margin-bottom:16px;font-weight:600;">⚡ Kemampuan Teknis</h3>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>HTML / CSS</span><span>92%</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="92"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>JavaScript</span><span>78%</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="78"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Python</span><span>65%</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Desain Grafis</span><span>80%</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Portofolio Keren · Dibuat dengan ❤️ dan semangat belajar</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
